@@ -21,9 +21,29 @@ function Set() {
     this.clear = function() {
         items = {}
     }
+    this.size = function() {
+        return Object.keys(items).length;
+    }
+    this.values = function() {
+        let result = []
+        result.push(...Object.keys(items))
+        return result;
+    }
 }
 
 let set = new Set();
 set.add(1);
+console.log(set.values()); 
+console.log(set.has(1)); 
+console.log(set.size()); 
+
 set.add(2);
-console.log(set);
+console.log(set.values()); 
+console.log(set.has(2)); 
+console.log(set.size()); 
+
+set.remove(1);
+console.log(set.values()); 
+
+set.remove(2);
+console.log(set.values()); 
