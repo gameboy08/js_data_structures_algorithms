@@ -8,7 +8,7 @@
  */
 //Runtime: 88 ms, faster than 99.07% of JavaScript online submissions for Longest Substring Without Repeating Characters.
 function lengthOfLongestSubstring (s) {
-    let hashMap = new Map();
+    let dict = new Map();
     let index = 0;
     let start = 0;
     let result = 0;
@@ -16,12 +16,12 @@ function lengthOfLongestSubstring (s) {
         return 0;
     }
     while (index < s.length) {
-        if (hashMap.has(s[index])) {
+        if (dict.has(s[index])) {
             //The situation when "start" is bigger is that the new letter shows up before, but is in an older substring round. 
             //Then this letter doesn't affect this round substring calc.
-            start = Math.max(hashMap.get(s[index]) + 1, start);
+            start = Math.max(dict.get(s[index]) + 1, start);
         }
-        hashMap.set(s[index], index);
+        dict.set(s[index], index);
         //a substring length is current_index - start_index + 1
         result = Math.max(result, index-start+1);
         index++;
