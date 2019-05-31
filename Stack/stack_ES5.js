@@ -1,4 +1,4 @@
-function Stack() {
+module.exports = function Stack() {
     let items = []
     this.push = function(element) {
         items.push(element)
@@ -23,8 +23,8 @@ function Stack() {
     };
 }
 
-let stack = new Stack();
-console.log(stack.isEmpty()); //输出为 true
-stack.push(5);
-stack.push(8);
-console.log(stack.print())
+// let stack = new Stack();
+// console.log(stack.isEmpty()); //输出为 true
+// stack.push(5);
+// stack.push(8);
+// console.log(stack.print())
