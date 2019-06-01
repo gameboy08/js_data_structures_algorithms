@@ -116,13 +116,15 @@ function LinkedList() {
 }
 
 
-let list = new LinkedList();
-list.append(15);
-list.append(10);
-list.append(1);
-console.log(list.size());
-list.insert(3,16)
-console.log(list.toString());
+// let list = new LinkedList();
+// list.append(15);
+// list.append(10);
+// list.append(1);
+// console.log(list.size());
+// list.insert(3,16)
+// console.log(list.toString());
 // console.log(list.indexOf(10));
 // console.log(list.remove(16));
 // console.log(list.getHead());
+
+module.exports = LinkedList;
