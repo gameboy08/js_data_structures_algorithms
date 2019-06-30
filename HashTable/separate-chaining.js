@@ -1,12 +1,12 @@
 const LinkedList = require("../LinkedList/linkedList_es5");
-var valuePair = function(key, value) {
+var ValuePair = function(key, value) {
     this.key = key;
     this.value = value;
     this.toString = function() {
         return "[" + + this.key + ' - ' + this.value + "]";
     }
 }
-function HashTableSepChain() {
+function SeparateChaining() {
     let table = [];
     var loseloseHashCode = function(key) {
         let hash = null;
@@ -20,7 +20,7 @@ function HashTableSepChain() {
         if(table[position] == undefined) {
             table[position] = new LinkedList()
         }
-        table[position].append(new valuePair(key, value))
+        table[position].append(new ValuePair(key, value))
     }
     this.get = function(key) {
         const position = loseloseHashCode(key);
@@ -39,6 +39,32 @@ function HashTableSepChain() {
         }
         
         return undefined;
+    }
+
+    this.remove = function(key) {
+        const position = loseloseHashCode(key);
+        if (table[position] !== undefined) {
+            const current = table[position].getHead();
+            while(current.next) {
+                if (current.element.key === key) {
+                    table[position].remove(current.element);
+                    if(current.isEmpty()) {
+                        table[position] = undefined
+                    }
+                    return true;
+                }
+                
+                current = current.next;
+            }
+            if(current.element.key === key) {
+                table[position].remove(current.element);
+                if(current.isEmpty()) {
+                    table[position] = undefined;
+                }
+                return true;
+            }
+        }
+        return false;
     }
 }
 
