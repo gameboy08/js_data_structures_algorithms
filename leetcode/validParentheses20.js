@@ -27,23 +27,23 @@ const Stack = require("../Stack/stack_ES5");
 // };
 
 
-// var isValid = function(s) {
-//     const parenth = new Map([[ "}", "{" ], [ ")", "(" ], ["]","["]]);
+var isValid = function(s) {
+    const parenth = new Map([[ "}", "{" ], [ ")", "(" ], ["]","["]]);
 
-//     let index = 0;
-//     const stack = new Stack();
-//     while(index < s.length) {
-//         const letter = s[index];
-//         if(!parenth.has(letter)) {
-//             stack.push(letter);
-//         } else if (stack.isEmpty() || (stack.pop() !== parenth.get(letter))) {
-//             return false
-//         }
+    let index = 0;
+    const stack = new Stack();
+    while(index < s.length) {
+        const letter = s[index];
+        if(!parenth.has(letter)) {
+            stack.push(letter);
+        } else if (stack.isEmpty() || (stack.pop() !== parenth.get(letter))) {
+            return false
+        }
 
-//         index++;
-//     }
-//     return stack.isEmpty();
-// }
+        index++;
+    }
+    return stack.isEmpty();
+}
 
 var isValid = function (s) {
     let length;
